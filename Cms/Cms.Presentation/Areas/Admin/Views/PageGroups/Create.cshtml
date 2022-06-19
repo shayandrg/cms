@@ -1,0 +1,29 @@
+﻿@model MyCms.DomainClasses.PageGroup.PageGroup
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>افزودن گروه جدید</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GroupTitle" class="control-label"></label>
+                <input asp-for="GroupTitle" class="form-control" />
+                <span asp-validation-for="GroupTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+

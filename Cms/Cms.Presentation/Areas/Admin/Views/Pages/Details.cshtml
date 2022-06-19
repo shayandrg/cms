@@ -1,0 +1,67 @@
+﻿@model MyCms.DomainClasses.Page.Page
+
+@{
+    ViewData["Title"] = "جزئیات";
+}
+
+<h2>جزئیات خبر @Model.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visit)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.PageTags)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageTags)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowInSlider)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowInSlider)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Group)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Group.GroupTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd>
+            <img src="/PageImages/@Model.ImageName" class="thumbnail" style="max-width: 200px"/>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">ویرایش خبر</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>

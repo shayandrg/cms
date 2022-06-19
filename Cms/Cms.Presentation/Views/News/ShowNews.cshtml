@@ -1,0 +1,32 @@
+﻿@using MyCms.Utilities.Convertor
+@model MyCms.DomainClasses.Page.Page
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="single-news border-radius">
+    <header><h2> @Model.Title </h2> <span> <i class="fa fa-calendar"></i>  انتشار : @Model.CreateDate.ToShamsi()</span></header>
+    <article>
+        <p>
+            @Model.ShortDescription
+        </p>
+        
+        @if (Model.ImageName != null)
+        {
+            <div>
+                <img src="/PageImages/@Model.ImageName" alt="@Model.Title" class="thumbnail"/>
+            </div>
+        }
+
+        <p>
+            @Model.Content
+        </p>
+    </article>
+</section>
+<div class="keywords border-radius">
+    @foreach (var item in Model.PageTags.Split('-'))
+    {
+        <a href="/Search?q=@item"> @item </a>
+    }
+</div>
+

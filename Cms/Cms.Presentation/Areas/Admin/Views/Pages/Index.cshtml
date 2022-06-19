@@ -1,0 +1,64 @@
+﻿@using MyCms.Utilities.Convertor
+@model IEnumerable<MyCms.DomainClasses.Page.Page>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>لیست اخبار</h2>
+<hr/>
+<p>
+    <a asp-action="Create" class="btn btn-primary">افزودن خبر جدید</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="/PageImages/@item.ImageName" class="thumbnail" style="max-width: 120px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Group.GroupTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visit)
+        </td>
+
+        <td>
+            @item.CreateDate.ToShamsi()
+        </td>
+   
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">ویرایش</a> |
+            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">جزئیات</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

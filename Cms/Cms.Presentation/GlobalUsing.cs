@@ -1,0 +1,1 @@
+global using Cms.Presentation.Configuration;

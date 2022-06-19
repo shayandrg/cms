@@ -1,0 +1,15 @@
+﻿@using MyCms.Services.Repositories
+@inject IPageGroupRepository _groupRepository
+
+<ul>
+    <li><a href=""> صفحه اصلی </a></li>
+    <li>
+        <span>گروه های خبری</span>
+        <ul>
+           @foreach (var item in _groupRepository.GetListGroups())
+           {
+                <li><a href="/Group/@item.GroupID/@item.GroupTitle">@item.GroupTitle</a></li>
+           }
+        </ul>
+    </li>
+</ul>
